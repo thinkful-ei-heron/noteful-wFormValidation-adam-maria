@@ -1,0 +1,20 @@
+h2 {
+    text-align: center;
+
+}
+
+.folder-form {
+    margin: 50px 20px
+}
+
+.folder-input-name {
+    margin-left: 10px;
+}
+
+.form-group {
+    margin: 5px
+}
+
+.add-folder-button {
+    margin: 5px
+}
