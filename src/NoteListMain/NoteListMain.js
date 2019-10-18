@@ -50,6 +50,6 @@ export default class NoteListMain extends React.Component {
   }
 }
 
-NoteListMain.PropTypes = {
+NoteListMain.propTypes = {
   params: PropTypes.object
 }

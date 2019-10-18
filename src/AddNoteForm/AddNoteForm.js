@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import ValidationError from "../ValidationError/ValidationError";
 import ApiContext from '../ApiContext'
 import PropTypes from 'prop-types';
@@ -67,9 +67,7 @@ export class AddNoteForm extends Component {
     validatefolder() {
         const folder = this.state.folder.value.trim();
         if(folder.length === 0) {
-            return "Folder is a required";
-        } else if (folder.length < 3) {
-            return " folder...";
+            return "Folder selection is required";
         }
     }
 
@@ -109,16 +107,25 @@ export class AddNoteForm extends Component {
                 </div>
 
                 <div className="folder-group">
-                    <label htmlFor="folder">Folder *</label>
-                    <input 
-                        type="text" 
-                        className="folder__content" 
-                        name="folder"
-                        id="folder"
-                        value={this.state.folder.value}
-                        onChange={e => this.UpdateFolder(e.target.value)}
-                    />
-                        {this.state.content.touched && <ValidationError message={folderError}/>}
+                    <label htmlFor="folder"> Folder Selection </label>
+                    <select
+                    name="folder"
+                    id="folder"
+                    onChange={e => this.UpdateFolder(e.target.value)}>
+                        <option
+                        value=""> folder select
+                        </option>
+                        {this.context.folders.map(folder => {
+                            return (
+                                <option
+                                    key={folder.id}
+                                    value={folder.id}>
+                                    {folder.name}
+                                </option>
+                            )
+                        })}
+                    </select>
+                    {this.state.folder.touched && <ValidationError message = {folderError} />}
                 </div>
 
                 <div className="notes-button">
@@ -134,7 +141,7 @@ export class AddNoteForm extends Component {
 }
 
 //propTypes 
-AddNoteForm.PropTypes= {
+AddNoteForm.propTypes= {
     history: PropTypes.object,
 }
 
