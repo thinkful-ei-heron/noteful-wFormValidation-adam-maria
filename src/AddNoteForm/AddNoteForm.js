@@ -110,14 +110,25 @@ export class AddNoteForm extends Component {
 
                 <div className="folder-group">
                     <label htmlFor="folder">Folder *</label>
-                    <input 
-                        type="text" 
+                    <select
                         className="folder__content" 
                         name="folder"
                         id="folder"
-                        value={this.state.folder.value}
-                        onChange={e => this.UpdateFolder(e.target.value)}
-                    />
+                        onChange={e => this.UpdateFolder(e.target.value)}>
+                            <option
+                            value=''>Select a folder
+                            </option>
+                            {this.context.folders.map(folder => {
+                                return (
+                                    <option
+                                        key={folder.id}
+                                        value={folder.id}>
+                                        {folder.name}
+                                        </option>
+                                )
+                            })}
+                        </select>
+                    
                         {this.state.content.touched && <ValidationError message={folderError}/>}
                 </div>
 
