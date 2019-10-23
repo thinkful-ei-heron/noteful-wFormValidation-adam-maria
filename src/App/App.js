@@ -60,12 +60,8 @@ class App extends Component {
        
     }
 
-    handleAddNote = (name, content, folderName) =>{
-        const targetFolder = this.state.folders.filter(folder => folder.name === folderName);
-        console.log(targetFolder)
-        // const folderId = targetFolder[0].id;
-        // console.log(folderId)
-        const addNoteOptions = {
+    handleAddNote = (name, content, folderId) =>{
+       const addNoteOptions = {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -74,7 +70,7 @@ class App extends Component {
             body: JSON.stringify({
                 name: name,
                 content: content,
-                // folderId: folderId
+                folderId: folderId
 
             })
         };

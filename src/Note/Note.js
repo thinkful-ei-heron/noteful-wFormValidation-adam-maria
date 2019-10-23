@@ -7,6 +7,7 @@ import config from '../config'
 import PropTypes from 'prop-types';
 import './Note.css'
 
+
 export default class Note extends React.Component {
   static defaultProps ={
     onDeleteNote: () => {},
@@ -41,6 +42,7 @@ export default class Note extends React.Component {
 
   render() {
     const { name, id, modified } = this.props
+    console.log(this.props)
     return (
       <div className='Note'>
         <h2 className='Note__title'>
@@ -72,5 +74,5 @@ export default class Note extends React.Component {
 }
 
 Note.propTypes = {
-  id: PropTypes.string
+  id: PropTypes.string.isRequired
 }

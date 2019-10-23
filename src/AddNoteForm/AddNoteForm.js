@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import ValidationError from "../ValidationError/ValidationError";
 import ApiContext from '../ApiContext'
 import PropTypes from 'prop-types';
@@ -123,7 +122,7 @@ export class AddNoteForm extends Component {
                                     <option
                                         key={folder.id}
                                         value={folder.id}>
-                                        {folder.name}
+                                        {folder.name} 
                                         </option>
                                 )
                             })}
@@ -145,8 +144,8 @@ export class AddNoteForm extends Component {
 }
 
 //propTypes 
-AddNoteForm.PropTypes= {
-    history: PropTypes.object,
+AddNoteForm.propTypes= {
+    history: PropTypes.object.isRequired
 }
 
 export default AddNoteForm

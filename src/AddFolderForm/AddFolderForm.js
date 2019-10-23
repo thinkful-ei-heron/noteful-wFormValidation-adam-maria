@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ValidationError from '../ValidationError/ValidationError'
-import { Link } from 'react-router-dom'
 import ApiContext from '../ApiContext'
 import PropTypes from 'prop-types';
 import './AddFolderForm.css'
@@ -61,8 +60,8 @@ class AddFolderForm extends Component {
     }
 }
 
-AddFolderForm.PropTypes= {
-    history: PropTypes.object
+AddFolderForm.propTypes= {
+    history: PropTypes.object.isRequired
 }
 
 export default AddFolderForm;
